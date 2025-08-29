@@ -1,15 +1,16 @@
-body {
+.body2 {
   font-family: Arial, sans-serif;
-  background-color: #f8f4f4;
+  background-color: whitesmoke;
   margin: 0;
   padding: 0;
+  text-align: left;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: deepskyblue;
+  background-color: #9D4A4B;
   color: whitesmoke;
   padding: 15px 30px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
