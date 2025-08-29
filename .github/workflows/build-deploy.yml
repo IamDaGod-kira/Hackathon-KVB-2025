@@ -8,6 +8,9 @@ on:
     branches:
       - master
 
+permissions:
+  contents: write   # 👈 this is critical for pushing to gh-pages
+
 jobs:
   build:
     name: Build
