@@ -1,9 +1,26 @@
 import './home.css';
 import List from './sub-parts/student-list';
+import Enroll from './sub-parts/enroll';
 import { useState } from 'react';
 
 function Home() {
   const [showStudentList, setShowStudentList] = useState(false);
+  const [showEnrollment, setShowEnrollment] = useState(false);
+
+  const handleEnrollmentClick = () => {
+    setShowStudentList(false); // Hide Student List when Enrollment is clicked
+    setShowEnrollment(true);    // Show Enrollment
+  };
+
+  const handleStudentListClick = () => {
+    setShowEnrollment(false);   // Hide Enrollment when Student List is clicked
+    setShowStudentList(true);   // Show Student List
+  };
+
+  const handleHomeClick = () => {
+    setShowEnrollment(false);   // Hide Enrollment when Home is clicked
+    setShowStudentList(false);  // Hide Student List when Home is clicked
+  };
 
   return (
     <div className='body2'>
@@ -19,17 +36,25 @@ function Home() {
       </header>
 
       <nav className="nav-bar">
-        <button className="nav-btn green">Enrollment</button>
-        <button onClick={() => setShowStudentList(true)} className="nav-btn blue">Student List</button>
-        <button className="nav-btn gray">Home</button>
+        <button onClick={handleEnrollmentClick} className="nav-btn green">Enrollment</button>
+        <button onClick={handleStudentListClick} className="nav-btn blue">Student List</button>
+        <button onClick={handleHomeClick} className="nav-btn gray">Home</button>
       </nav>
 
       <main className="content">
-        {showStudentList ? (
+        {showEnrollment && (
+          <section className="section">
+            <Enroll />
+          </section>
+        )}
+
+        {showStudentList && (
           <section className="section">
             <List />
           </section>
-        ) : (
+        )}
+
+        {!showEnrollment && !showStudentList && (
           <div className='body2'>
             <section className="section">
               <h2>About Us</h2>
