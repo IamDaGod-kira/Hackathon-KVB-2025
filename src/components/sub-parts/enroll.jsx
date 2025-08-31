@@ -1,39 +1,56 @@
 import "./enroll.css";
+import { useState } from "react";
 
 export default function Enroll() {
+  const [showCourse, setShowCourse] = useState(false);
+
+  const toggleCourse = (e) => {
+    const value = e.target.value;
+    if (value === "11" || value === "12") {
+      setShowCourse(true);
+    } else {
+      setShowCourse(false);
+    }
+  };
+
   return (
     <div className="body4">
-      <div clasName="form-container">
+      <div className="form-container">
         <h2>Student Enrollment Form</h2>
         <form action="#" method="post">
-          <label htmlFor="fullname">Full Name of Student</label>
+          <label htmlFor="studentName">Full Name of Student</label>
           <input
             className="input"
             type="text"
-            id="fullname"
-            name="fullname"
+            id="studentName"
+            name="studentName"
             placeholder="Enter full name of student"
             required
           />
-          <label htmlFor="fullname">Name of Father</label>
+
+          {/* Father */}
+          <label htmlFor="fatherName">Name of Father</label>
           <input
             className="input"
             type="text"
-            id="fullname"
-            name="fullname"
+            id="fatherName"
+            name="fatherName"
             placeholder="Enter name of father"
             required
           />
-          <label htmlFor="fullname">Name of Mother</label>
+
+          {/* Mother */}
+          <label htmlFor="motherName">Name of Mother</label>
           <input
             className="input"
             type="text"
-            id="fullname"
-            name="fullname"
+            id="motherName"
+            name="motherName"
             placeholder="Enter name of mother"
             required
           />
 
+          {/* Email */}
           <label htmlFor="email">Email</label>
           <input
             className="input"
@@ -43,16 +60,19 @@ export default function Enroll() {
             placeholder="Enter email"
             required
           />
-          <label htmlFor="email">Unique ID</label>
+
+          {/* Unique ID */}
+          <label htmlFor="uniqueId">Unique ID</label>
           <input
             className="input"
-            type="email"
-            id="email"
-            name="email"
+            type="text"
+            id="uniqueId"
+            name="uniqueId"
             placeholder="Enter Unique ID"
             required
           />
 
+          {/* Phone */}
           <label htmlFor="phone">Phone Number</label>
           <input
             className="input"
@@ -62,74 +82,56 @@ export default function Enroll() {
             placeholder="Enter your phone number"
             required
           />
-          <label htmlFor="phone">Alternative Phone Number</label>
+
+          {/* Alt Phone */}
+          <label htmlFor="altPhone">Alternative Phone Number</label>
           <input
             className="input"
             type="tel"
-            id="phone"
-            name="phone"
+            id="altPhone"
+            name="altPhone"
             placeholder="Enter your alternative phone number"
             required
           />
 
+          {/* Gender */}
           <label>Gender</label>
           <div className="radio-group">
             <label>
-              <input
-                className="input"
-                type="radio"
-                name="gender"
-                value="male"
-                required
-              />{" "}
-              Male
+              <input type="radio" name="gender" value="male" required /> Male
             </label>
             <label>
-              <input
-                className="input"
-                type="radio"
-                name="gender"
-                value="female"
-              />{" "}
-              Female
+              <input type="radio" name="gender" value="female" /> Female
             </label>
             <label>
-              <input
-                className="input"
-                type="radio"
-                name="gender"
-                value="other"
-              />{" "}
-              Other
+              <input type="radio" name="gender" value="other" /> Other
             </label>
           </div>
+
+          {/* Disabled */}
           <label>Physically Disabled</label>
           <div className="radio-group">
             <label>
-              <input
-                className="input"
-                type="radio"
-                name="handicapped"
-                value="yes"
-                required
-              />{" "}
-              Yes
+              <input type="radio" name="handicapped" value="yes" required /> Yes
             </label>
             <label>
               <input type="radio" name="handicapped" value="no" /> No
             </label>
           </div>
+
+          {/* Class */}
           <label htmlFor="className">Select Class</label>
           <select
             className="select"
             name="className"
+            id="className"
             required
-            onchange="toggleCourse()"
+            onChange={toggleCourse}
           >
             <option value="">-- Choose Class --</option>
-            <option value="1">Balvatika I</option>
-            <option value="1">Balvatika II</option>
-            <option value="1">Balvatika III</option>
+            <option value="balvatika1">Balvatika I</option>
+            <option value="balvatika2">Balvatika II</option>
+            <option value="balvatika3">Balvatika III</option>
             <option value="1">Class 1</option>
             <option value="2">Class 2</option>
             <option value="3">Class 3</option>
@@ -144,16 +146,21 @@ export default function Enroll() {
             <option value="12">Class 12</option>
           </select>
 
-          <div id="courseSection" style="display:none;">
-            <label htmlFor="course">Select Course</label>
-            <select className="select" id="course" name="course">
-              <option value="">-- Choose a Stream --</option>
-              <option value="science">Science(Computer Science)</option>
-              <option value="science">Science(Bilology)</option>
-              <option value="commerce">Commerce</option>
-              <option value="arts">Humanities</option>
-            </select>
-          </div>
+          {/* Course Section (Only for Class 11 & 12) */}
+          {showCourse && (
+            <div id="courseSection">
+              <label htmlFor="course">Select Course</label>
+              <select className="select" id="course" name="course">
+                <option value="">-- Choose a Stream --</option>
+                <option value="science-cs">Science (Computer Science)</option>
+                <option value="science-bio">Science (Biology)</option>
+                <option value="commerce">Commerce</option>
+                <option value="arts">Humanities</option>
+              </select>
+            </div>
+          )}
+
+          {/* Address */}
           <label htmlFor="address">Address</label>
           <textarea
             className="textarea"
@@ -164,6 +171,7 @@ export default function Enroll() {
             required
           ></textarea>
 
+          {/* Submit */}
           <button className="button4" type="submit">
             Enroll Now
           </button>
