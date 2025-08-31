@@ -156,7 +156,7 @@ export default function Enroll() {
           </div>
           <label htmlFor="address">Address</label>
           <textarea
-            class="textarea"
+            className="textarea"
             id="address"
             name="address"
             rows="4"
