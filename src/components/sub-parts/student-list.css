@@ -1,19 +1,17 @@
-
-
-.body3{
-    background: linear-gradient(to right, royalblue, slategrey);
-    color: gold;
-    padding-bottom: 1cm;
-    text-align: center;
+.body3 {
+  background: linear-gradient(to right, royalblue, slategrey);
+  color: gold;
+  padding-bottom: 1cm;
+  text-align: center;
 }
 .button2 {
-    text-align: center;
-    font-size: medium;
-    width: 800px;
-    color:#9D4A4B;
+  text-align: center;
+  font-size: medium;
+  width: 800px;
+  color: #9d4a4b;
 }
-.button2:hover{
-    cursor: pointer;
-    background-color: aquamarine;
-    color: goldenrod;
+.button2:hover {
+  cursor: pointer;
+  background-color: aquamarine;
+  color: goldenrod;
 }
