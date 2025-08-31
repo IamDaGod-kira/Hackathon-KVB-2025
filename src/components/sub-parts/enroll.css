@@ -34,12 +34,12 @@
   font-size: 14px;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-select,
-textarea {
+.input[type="text"],
+.input[type="email"],
+.input[type="tel"],
+.input[type="password"],
+.select,
+.textarea {
   width: 100%;
   padding: 10px;
   margin-top: 6px;
@@ -50,9 +50,9 @@ textarea {
   transition: border 0.3s;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
+.input:focus,
+.select:focus,
+.textarea:focus {
   border: 1px solid #2575fc;
 }
 
@@ -86,6 +86,6 @@ textarea:focus {
   color: gold;
 }
 
-textarea {
+.textarea {
   resize: none;
 }
