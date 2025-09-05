@@ -1,3 +1,10 @@
+{/* created with love by the students of PM Shri KV Ballygunge */}
+{/* contributers: Pritam Santra (owner of repo aka IamDaGod-kira) 
+                  Ayush Sharma aka cosmic-donut40
+                  Ankan Mandal aka jrscientist-entamologis 
+                  */}
+{/* also helped by the respected teachers */}
+
 import "./App.css";
 import Home from "./components/home";
 import { useState } from "react";
