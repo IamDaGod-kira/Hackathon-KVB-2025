@@ -6,8 +6,8 @@
 {/* also helped by the respected teachers */}
 
 import "./App.css";
-import Home from "./components/home";
-import { useState } from "react";
+import { useState, lazy } from "react";
+const Home = lazy(() => {import('./components/home')});
 
 function App() {
   const [isRendered, setIsRendered] = useState(true);

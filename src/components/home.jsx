@@ -1,7 +1,8 @@
 import "./home.css";
-import List from "./sub-parts/student-list";
-import Enroll from "./sub-parts/enroll";
-import { useState } from "react";
+import { lazy, useState } from "react";
+
+const List = lazy(() => {import('./sub-parts/student-list')});
+const Enroll = lazy(() => {import('./sub-parts/enroll')});
 
 function Home() {
   const [showStudentList, setShowStudentList] = useState(false);
