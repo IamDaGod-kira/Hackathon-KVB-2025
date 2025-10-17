@@ -6,8 +6,8 @@
 {/* also helped by the respected teachers */}
 
 import "./App.css";
-import { useState, lazy } from "react";
-const Home = lazy(() => {import('./components/home')});
+import { useState, lazy, Suspense } from "react";
+const Home = lazy(() => import('./components/home'));
 
 function App() {
   const [isRendered, setIsRendered] = useState(true);
@@ -73,7 +73,7 @@ function App() {
       </div>
     );
   } else {
-    return <Home />;
+    return  <Suspense fallback={<div>Loading...</div>}><Home /></Suspense>;
   }
 }
 
